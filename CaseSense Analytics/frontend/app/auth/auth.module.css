@@ -1,0 +1,56 @@
+.container {
+    /* border: 2px solid black; */
+    width : 100vw;
+    height : 80vh;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.inner-container {
+    /* border: 2px solid black; */
+    width : 30vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.selector {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 2rem;
+}
+
+.inner-container > * {
+    margin: 1rem;
+    padding: 0.7rem;
+    border-radius: 0.2rem;
+}
+
+
+.selector > * {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.authSelected {
+    background-color: black;
+    color: white;
+}
+
+.signupInactive{
+    color: black;
+}
+
+.button {
+    width: 10vw;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.button:hover {
+background-color: black;
+color: white;
+}

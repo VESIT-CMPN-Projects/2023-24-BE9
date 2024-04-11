@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+/* Common */
+
+body {
+  background-color: #f0ebd8;
+  margin: 0;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+}
+
+a:-webkit-any-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Navbar */
+
+nav {
+  display: flex;
+  position: sticky;
+  gap: 50px;
+  align-items: center;
+  padding: 20px 40px;
+  font-size: 1.25rem;
+  background-color: #0d1321;
+  color: #edf2f4;
+  z-index: 1;
+}
+
+nav div:hover {
+  font-size: 1.26rem;
+}
+
+nav header {
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: text-decoration 2s;
+}
+
+nav header:hover {
+  text-decoration: underline;
+}
+
+.btn-grp {
+  margin-left: auto;
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+.btn-grp > button {
+  color: #0d1321;
+  font-size: 1rem;
+  border-radius: 20px;
+  background-color: #f0ebd8;
+  border: none;
+  padding: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color .25s;
+}
+
+.btn-grp > button:hover {
+  background-color: #3e5c76;
+  color: #edf2f4;
+}
+
+.hamburger-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #0d1321;
+  opacity: 0.99;
+  height: 100vh;
+  width: 70vw;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px
+}
+
+.hamburger-icon {
+  display: none;
+}
+
+/* Scroll bar */
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: gray;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #3e5c76;
+}
+
+@media only screen and (max-width: 700px) {
+  .nav-comps {
+    display: none;
+  }
+
+  .hamburger-icon {
+    display: block;
+  }
+
+  nav {
+    justify-content: space-between;
+  }
+
+  .btn-grp {
+    flex-direction: column;
+    margin-left: initial;
+    gap: 20px
+  }
+}

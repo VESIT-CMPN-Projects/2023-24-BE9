@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Haystack RAG Implementation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Fira Code', monospace;
+            background-color: #1F1F1F;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            padding-top: 1rem;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+        }
+
+        #box1, #box2, #box3 {
+            border: 1px solid white;
+            padding: .5rem;
+            border-radius: 5px;
+        }
+
+    </style>
+  </head>
+  <body>
+      <h1>Haystack Pipeline Demo</h1>
+      <form id="uploadform" action="/doc-upload" method="post" enctype="multipart/form-data">
+        <input type="file" id="file" name="file" >
+        <input type="submit" id="submit">
+      </form>
+    
+      <h2>What type of legal document is uploaded</h2>
+      <div id="box1">Initial</div>
+    
+      <h2>Legal clauses present in the uploaded document</h2>
+      <div id="box2">Initial</div>
+
+      <h2>What clauses can be added to the legal document</h2>
+      <div id="box3">Initial</div>
+
+      <script>
+        const box1 = document.getElementById("box1");
+        const box2 = document.getElementById("box2");
+        const box3 = document.getElementById("box3");
+
+    
+        uploadform.onsubmit = async (e) => {
+          e.preventDefault();
+    
+          let res = await fetch("/doc-upload", {
+            method: "POST",
+            body: new FormData(uploadform),
+          });
+    
+          if (res.ok) {
+            let {documentType, legalClauses} = await res.json();
+            box1.innerText = documentType;
+            box2.innerText = legalClauses;
+
+            let formData = new FormData()
+            formData.append('documentType', documentType)
+            formData.append('legalClauses', legalClauses)
+            let res2 = await fetch("/rag", {
+                method: "POST",
+                body: formData,
+            });
+
+            let {answer} = await res2.json();
+
+            box3.innerText = answer;
+          } else {
+            box.innerText = `Response error: ${res.status}`;
+          };
+        };
+      </script>
+  </body>
+</html>

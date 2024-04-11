@@ -1,0 +1,12 @@
+Create and manage all things related to legal contracts from drafting to signing. -- Tagline
+Master the art of contracts: Navigate the entire lifecycle, from drafting to signing, effortlessly with our innovative and accessible platform. -- ChatGPT version
+
+
+Providing a platform to simplify legal contract drafting.
+-- Stop visiting lawyers to fill your contracts try out our intuitive contract filling system which supports a variety of templates 
+
+Allowing users to educate themselves about laws and rights as citizens.
+
+Using Safe GenAI to provide answers based on actual contracts.
+
+Protecting your information by only using Blockchain technology.

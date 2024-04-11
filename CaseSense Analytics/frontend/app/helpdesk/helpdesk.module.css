@@ -1,0 +1,143 @@
+.helpdesk-img {
+  position: relative;
+  height: 80vh;
+  margin: 40px auto;
+  width: 40vw;
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 5px 10px 4px #888888;
+}
+
+.helpdesk-container {
+  display: flex;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+.helpdesk-chatbot {
+  padding: 40px;
+  width: 40vw;
+  background-color: #748cab;
+  height: inherit;
+}
+
+.helpdesk-container header {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Chatbot Window */
+
+.chatbot-window {
+  display: flex;
+  flex-direction: column;
+  padding: 4px;
+  height: 600px;
+  max-height: 100dvh;
+  gap: 20px;
+}
+
+.message-window {
+  height: 90%;
+  border: 2px solid #0d1321;
+  background-color: #edf2f4;
+  border-radius: 20px;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.msg {
+  color: #edf2f4;
+  background-color: #0d1321;
+  padding: 15px;
+  margin: 10px 0;
+  height: fit-content;
+  /* max-height: 50%;
+  overflow-y: auto; */
+  width: fit-content;
+  max-width: 80%;
+  overflow-wrap: break-word;
+  border-radius: 20px;
+}
+
+.msg-right {
+  margin-left: auto;
+}
+
+.msg-left {
+  margin-right: auto;
+}
+
+.input-window {
+  height: auto;
+  background-color: #0d1321;
+  /* color: #edf2f4; */
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.input-window > textarea {
+  width: 80%;
+  background-color: #0d1321;
+  color: #edf2f4;
+  resize: none;
+  border: none;
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.input-window > textarea:disabled {
+  opacity: 0.5;
+}
+
+
+/* Scroll bar */
+
+/* width */
+.message-window::-webkit-scrollbar, .msg::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+.message-window::-webkit-scrollbar-track, .msg::-webkit-scrollbar {
+  background: #f1f1f1;
+  margin: 20px 0;
+}
+
+/* Handle */
+.message-window::-webkit-scrollbar-thumb, .msg::-webkit-scrollbar {
+  background: gray;
+  border-radius: 4px;
+}
+
+/* Handle on hover */
+.message-window::-webkit-scrollbar-thumb:hover, .msg::-webkit-scrollbar {
+  background: #3e5c76;
+}
+
+/* Animation */
+
+#particle-anim {
+  background-color: #edf2f4;
+}
+
+@media only screen and (max-width: 700px) {
+  .helpdesk-img {
+    display: none;
+  }
+
+  .helpdesk-chatbot {
+    width: 100vw;
+    padding: 20px;
+  }
+
+  .msg {
+    max-width: 95%;
+  }
+}
